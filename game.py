@@ -16,7 +16,7 @@ class Game:
             temp_grid = self.grid
             for letter in word:
                 if letter.upper() in temp_grid:
-                    temp_grid.remove(letter)
+                    temp_grid.remove(letter.upper())
                 else:
                     return False
                 return True

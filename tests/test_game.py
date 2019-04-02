@@ -25,3 +25,8 @@ class TestGame(unittest.TestCase):
         new_game = Game()
         new_game.grid = list('KWIENFUQW')
         self.assertIs(new_game.is_valid('FEUN'), False)
+
+    def test_lowercase_is_valid(self):
+        new_game = Game()
+        new_game.grid = list('TESTFIVEL')
+        self.assertIs(new_game.is_valid('test'), True)
