@@ -12,10 +12,10 @@ class Game:
     def is_valid(self, word):
 
         r = requests.get(f'https://wagon-dictionary.herokuapp.com/{word}')
-        if r.json()['found']:
+        if word != '' and r.json()['found']:
             temp_grid = self.grid
             for letter in word:
-                if letter in temp_grid:
+                if letter.upper() in temp_grid:
                     temp_grid.remove(letter)
                 else:
                     return False
