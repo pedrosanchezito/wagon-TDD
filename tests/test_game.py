@@ -13,6 +13,10 @@ class TestGame(unittest.TestCase):
 
     def test_is_valid(self):
         new_game = Game()
-        new_game.grid = ['O', 'Q', 'U', 'W', 'R', 'B', 'A', 'Z', 'E']
-        word = 'Baroque'
-        self.assertEqual(new_game.is_valid(word), True)
+        new_game.grid = list('OQUWRBAZE')
+        self.assertIs(new_game.is_valid('Baroque'), True)
+
+    def test_unknown_word_is_invalid(self):
+        new_game = Game()
+        new_game.grid = list('KWIENFUQW')
+        self.assertIs(new_game.is_valid('FEUN'), False)
